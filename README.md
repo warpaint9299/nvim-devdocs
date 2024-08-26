@@ -2,7 +2,18 @@
 
 nvim-devdocs is a plugin which brings [DevDocs](https://devdocs.io) documentations into neovim. Install, search and preview documentations directly inside neovim in markdown format with telescope integration. You can also use custom commands like [glow](https://github.com/charmbracelet/glow) to render the markdown for a better experience.
 
+# Addition
+This fork of the nvim-devdocs plugin adds new configuration options:
+- **`open_mode`** for controlling how documentation opens (tab, split, vsplit) 
+- **`hold_buf`** for keeping buffers open after closing.
+
 ## Preview
+**`hold_buf = false`** and **`open_mode = 'split'`**
+
+![nvim-devdocs split](./.github/preview-split.png)
+
+**`hold_buf = true`** and **`open_mode = 'vsplit'`**
+![nvim-devdocs hold_buf](./.github/preview-hold_buf.png)
 
 ![nvim-devdocs search](./.github/preview.png)
 
@@ -72,6 +83,8 @@ Here is the default configuration:
 {
   dir_path = vim.fn.stdpath("data") .. "/devdocs", -- installation directory
   telescope = {}, -- passed to the telescope picker
+  hold_buf = false, -- keeping buffers open after closing. 
+  open_mode = 'split', -- 'split' (horizontal), 'vert' (vertical), and 'tab' for tab edit
   filetypes = {
     -- extends the filetype to docs mappings used by the `DevdocsOpenCurrent` command, the version doesn't have to be specified
     -- scss = "sass",
