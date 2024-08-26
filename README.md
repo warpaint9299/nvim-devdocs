@@ -39,7 +39,7 @@ Lazy:
 
 ```lua
 return {
-  "luckasRanarison/nvim-devdocs",
+  "warpaint9299/nvim-devdocs",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
@@ -53,7 +53,7 @@ Packer:
 
 ```lua
 use {
-  "luckasRanarison/nvim-devdocs",
+  "warpaint9299/nvim-devdocs",
   requires = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
@@ -152,7 +152,7 @@ require('nvim-devdocs').setup({
 
 ## Contributing
 
-The HTML converter is still experimental, and not all documentation has been thoroughly tested yet. If you encounter rendering issues, feel free to submit an [issue](https://github.com/luckasRanarison/nvim-devdocs/issues).
+The HTML converter is still experimental, and not all documentation has been thoroughly tested yet. If you encounter rendering issues, feel free to submit an [issue](https://github.com/warpaint9299/nvim-devdocs/issues).
 
 Pull requests and feature requests are welcome!
 
