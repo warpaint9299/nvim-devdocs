@@ -10,6 +10,7 @@ local state = require("nvim-devdocs.state")
 local build = require("nvim-devdocs.build")
 local config = require("nvim-devdocs.config")
 local keymaps = require("nvim-devdocs.keymaps")
+local plugin_state = require("nvim-devdocs.state")
 
 local devdocs_site_url = "https://devdocs.io"
 local devdocs_cdn_url = "https://documents.devdocs.io"
@@ -252,10 +253,13 @@ end
 ---@param bufnr number
 ---@param float boolean
 M.open = function(entry, bufnr, float)
-  vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
-
   if not float then
+    vim.cmd(config.options.open_mode)
+    bufnr = vim.api.nvim_create_buf(config.options.hold_buf, true)
     vim.api.nvim_set_current_buf(bufnr)
+    local lines = plugin_state.get("preview_lines") or M.read_entry(entry)
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+    vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
   else
     local win = nil
     local last_win = state.get("last_win")
